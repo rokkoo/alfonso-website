@@ -1,9 +1,23 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import type { GetStaticProps, NextPage } from 'next';
+import Head from 'next/head';
+import Image from 'next/image';
+import { promises as fs } from 'fs';
+import path from 'path';
+import Link from 'next/link';
 
-const Home: NextPage = () => {
+import styles from '../styles/Home.module.css';
+
+interface Post {
+  title: string;
+  slug: string;
+  date: string;
+}
+
+interface Props {
+  postMetadata: Post[];
+}
+
+const Home: NextPage<Props> = ({ postMetadata }) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -13,44 +27,14 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.tsx</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
+        <h1 className={styles.title}>Posts</h1>
+        {postMetadata.map((post) => {
+          return (
+            <div key={post.slug} style={{ backgroundColor: 'gray' }}>
+              <Link href={`/posts/${post.slug}`}>{post.title}</Link>
+            </div>
+          );
+        })}
       </main>
 
       <footer className={styles.footer}>
@@ -66,7 +50,24 @@ const Home: NextPage = () => {
         </a>
       </footer>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export const getStaticProps: GetStaticProps = async (context) => {
+  const postDirectory = path.join(process.cwd(), 'pages/posts');
+  const postFilenames = await fs.readdir(postDirectory);
+
+  const postModules = await Promise.all(
+    postFilenames.map(async (p) => import(`./posts/${p}`))
+  );
+
+  const postMetadata = postModules.map((m) => m.metadata);
+
+  return {
+    props: {
+      postMetadata,
+    },
+  };
+};
+
+export default Home;
