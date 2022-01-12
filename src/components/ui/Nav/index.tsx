@@ -38,9 +38,11 @@ const Nav = () => {
         p="4"
         boxShadow="0px 8px 20px rgb(0 0 0 / 19%)"
         background="gray.900"
+        _light={{
+          background: 'gray.50',
+        }}
         borderRadius="8"
         w="sm"
-        color="gray.50"
         justifyContent="space-between"
         alignItems="center"
       >
