@@ -14,4 +14,8 @@ const movie = 'Shrek';
 console.log(`${movie}, ${year}`);
 ```
 
+```typescript
+Context.Provider({ year, movie });
+```
+
 export default ({ children, ...props }) => <PostLayout>{children}</PostLayout>;
