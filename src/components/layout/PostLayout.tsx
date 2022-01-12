@@ -1,6 +1,7 @@
 import { MDXProvider, MDXProviderComponentsProp } from '@mdx-js/react';
 import Image from 'next/image';
 import Code from '../ui/Code/index';
+import Nav from '../ui/Nav';
 
 const ResponsiveImage = (props: any) => (
   <Image alt={props.alt} layout="responsive" {...props} />
@@ -16,5 +17,10 @@ interface Props {
 }
 
 export default function Post({ children }: Props) {
-  return <MDXProvider components={components}>{children}</MDXProvider>;
+  return (
+    <MDXProvider components={components}>
+      <Nav />
+      {children}
+    </MDXProvider>
+  );
 }

@@ -7,6 +7,8 @@ import Link from 'next/link';
 
 import styles from '../styles/Home.module.css';
 
+import Nav from '../src/components/ui/Nav';
+
 interface Post {
   title: string;
   slug: string;
@@ -26,8 +28,11 @@ const Home: NextPage<Props> = ({ postMetadata }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <Nav />
+
       <main className={styles.main}>
         <h1 className={styles.title}>Posts</h1>
+
         {postMetadata.map((post) => {
           return (
             <div key={post.slug} style={{ backgroundColor: 'gray' }}>
