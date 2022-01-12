@@ -44,7 +44,7 @@ const Nav = () => {
         justifyContent="space-between"
         alignItems="center"
       >
-        <Text color="gray.400" fontWeight="bold" fontSize="xl">
+        <Text color="gray.100" fontWeight="bold" fontSize="2xl">
           <Link href="/">Alfonso</Link>
         </Text>
         <Grid
@@ -54,7 +54,9 @@ const Nav = () => {
           justifyContent="flex-end"
           alignItems="center"
         >
-          <Link href="/blog">Blog</Link>
+          <Text fontSize="md">
+            <Link href="/blog">Blog</Link>
+          </Text>
           <MotionBox whileTap={{ scale: 0.9 }}>
             <Button onClick={toggleColorMode}>{renderThemeIcon()}</Button>
           </MotionBox>
