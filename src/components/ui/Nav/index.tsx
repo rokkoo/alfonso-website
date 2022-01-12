@@ -60,7 +60,7 @@ const Nav = () => {
           justifyContent="flex-end"
           alignItems="center"
         >
-          <Text fontSize="md">
+          <Text fontSize="lg">
             <Link href="/blog">Blog</Link>
           </Text>
           <MotionBox whileTap={{ scale: 0.9 }}>
