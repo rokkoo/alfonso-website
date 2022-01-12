@@ -44,7 +44,13 @@ const Nav = () => {
         justifyContent="space-between"
         alignItems="center"
       >
-        <Text color="gray.100" fontWeight="bold" fontSize="2xl">
+        <Text
+          color="gray.100"
+          bgGradient="linear(to-r, #7928CA, #FF0080)"
+          bgClip="text"
+          fontSize="3xl"
+          fontWeight="extrabold"
+        >
           <Link href="/">Alfonso</Link>
         </Text>
         <Grid
