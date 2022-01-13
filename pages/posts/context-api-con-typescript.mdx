@@ -1,11 +1,25 @@
 import PostLayout from '../../src/components/layout/PostLayout';
+import { useCallback } from 'react';
+import { Heading } from '@chakra-ui/react';
 
 export const metadata = {
   title: 'Context API con typescript',
   slug: 'context-api-con-typescript',
 };
 
-# Context-api-con-typescript
+<Heading
+  as="h2"
+  bgGradient="linear(to-r, #ffff80, #ff80bf)"
+  _light={{
+    bgGradient: 'linear(to-r, #ff80bf, #9580ff)',
+  }}
+  bgClip="text"
+  mb={4}
+>
+  Context API con typescript
+</Heading>
+
+Vamos a crear una variable con todos los valores mencionado anteriormente.
 
 ```js
 const year = '2001';

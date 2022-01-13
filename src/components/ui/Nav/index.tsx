@@ -5,6 +5,7 @@ import {
   Button,
   Flex,
   Grid,
+  Heading,
   Text,
   useColorMode,
 } from '@chakra-ui/react';
@@ -46,15 +47,15 @@ const Nav = () => {
         justifyContent="space-between"
         alignItems="center"
       >
-        <Text
+        <Heading
+          as="h1"
           color="gray.100"
-          bgGradient="linear(to-r, #7928CA, #FF0080)"
+          bgGradient="linear(to-r, #ff80bf, #9580ff)"
           bgClip="text"
           fontSize="3xl"
-          fontWeight="extrabold"
         >
-          <Link href="/">Alfonso</Link>
-        </Text>
+          <Link href="/">Alf</Link>
+        </Heading>
         <Grid
           flex={1}
           templateColumns="repeat(2, 60px)"
@@ -62,7 +63,7 @@ const Nav = () => {
           justifyContent="flex-end"
           alignItems="center"
         >
-          <Text fontSize="lg">
+          <Text fontSize="lg" _hover={{ color: 'gray.50' }}>
             <Link href="/blog">Blog</Link>
           </Text>
           <MotionBox whileTap={{ scale: 0.9 }}>
