@@ -28,7 +28,7 @@ const Careers = () => {
         website_url="https://www.ceit.es"
         from="Febrero 2018"
         to="Enero 2020"
-        place="remote"
+        place="San Sebastián"
       />
     </Box>
   );
