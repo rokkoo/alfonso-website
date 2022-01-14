@@ -16,7 +16,7 @@ const styles = {
   global: (props: any) => ({
     body: {
       color: mode('black', '#8f9ba8')(props),
-      bg: mode('gray.100', '#141214')(props),
+      bg: mode('gray.100', 'black')(props),
       fontSize: 'md',
     },
   }),
@@ -28,8 +28,13 @@ const fonts = {
   h1: 'Bellota',
 };
 
+const colors = {
+  black: '#08070b',
+};
+
 const theme = extendTheme({
   config,
+  colors,
   fonts,
   styles,
 });
