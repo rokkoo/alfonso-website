@@ -47,14 +47,8 @@ const Nav = () => {
         justifyContent="space-between"
         alignItems="center"
       >
-        <Heading
-          as="h1"
-          color="gray.100"
-          bgGradient="linear(to-r, #ff80bf, #9580ff)"
-          bgClip="text"
-          fontSize="3xl"
-        >
-          <Link href="/">Alf</Link>
+        <Heading as="h1" color="gray.100" fontSize="3xl" fontFamily="Bellota">
+          <Link href="/">Alfonso</Link>
         </Heading>
         <Grid
           flex={1}

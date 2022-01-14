@@ -1,5 +1,6 @@
 import '@fontsource/bellota/400.css';
 import '@fontsource/raleway/400.css';
+import '@fontsource/hind-siliguri/400.css';
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import { ChakraProvider, ThemeConfig } from '@chakra-ui/react';
@@ -23,7 +24,7 @@ const styles = {
 
 const fonts = {
   body: 'Raleway',
-  heading: 'Bellota',
+  heading: 'Hind Siliguri',
   h1: 'Bellota',
 };
 

@@ -28,7 +28,7 @@ const Home: NextPage<Props> = ({ postMetadata }) => {
       content="Website de Alfonso Lasa, donde se comparte información relacionada con el mundo del desarrollo de software"
     >
       <Heading
-        bgGradient="linear(to-r, #80ffea, #8aff80)"
+        bgGradient="linear(to-r, #ff80bf, #9580ff)"
         _light={{
           bgGradient: 'linear(to-r, #ff80bf, #9580ff)',
         }}
