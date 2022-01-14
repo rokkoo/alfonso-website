@@ -47,12 +47,6 @@ const Home: NextPage<Props> = ({ postMetadata }) => {
         Llevo programando de manera profesional desde el año{' '}
         <RemarkText>2018</RemarkText>.
       </Text>
-      {/* <br />
-      <Text>
-        Mi carrera comenzo como frontend developer en el centro tecnológico
-        Ceit, donde relamente aprendi y experimente lo que es el mundo del
-        desarrollo de software.
-      </Text> */}
       <br />
       <Text>
         Actualmente trabajo como desarrollador en{' '}
@@ -62,6 +56,12 @@ const Home: NextPage<Props> = ({ postMetadata }) => {
             Rebellion pay.
           </Link>
         </RemarkText>
+      </Text>
+      <br />
+      <Text>
+        Amante del <RemarkText>darkmode,</RemarkText> el código y la tecnología.
+        Cuando no estoy trabajando o programando, me gusta ver pelicula/series
+        hacer crossfit y <RemarkText>comer mucho.</RemarkText>
       </Text>
       <Careers />
     </BaseLayout>

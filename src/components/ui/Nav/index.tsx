@@ -47,7 +47,15 @@ const Nav = () => {
         justifyContent="space-between"
         alignItems="center"
       >
-        <Heading as="h1" color="gray.100" fontSize="3xl" fontFamily="Bellota">
+        <Heading
+          as="h1"
+          color="gray.100"
+          fontSize="3xl"
+          fontFamily="Bellota"
+          _light={{
+            color: 'gray.700',
+          }}
+        >
           <Link href="/">Alfonso</Link>
         </Heading>
         <Grid
@@ -56,6 +64,9 @@ const Nav = () => {
           fontWeight="semibold"
           justifyContent="flex-end"
           alignItems="center"
+          _light={{
+            color: 'gray.700',
+          }}
         >
           <Text fontSize="lg" _hover={{ color: 'gray.50' }}>
             <Link href="/blog">Blog</Link>
