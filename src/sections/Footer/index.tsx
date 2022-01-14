@@ -7,7 +7,7 @@ const Footer = () => {
   const isLight = colorMode === 'light';
 
   return (
-    <Flex as="footer" w="full" justifyContent="center" mt="12" mb="8">
+    <Flex as="footer" w="full" justifyContent="center" pt="12" pb="8">
       <Link
         href="https://twitter.com/alfonso_dev"
         target="_blank"
