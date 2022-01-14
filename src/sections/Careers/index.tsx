@@ -5,8 +5,7 @@ const Careers = () => {
   return (
     <Box>
       <Heading
-        mt="12"
-        mb="4"
+        mt="14"
         as="h4"
         fontSize="2xl"
         color="gray.50"

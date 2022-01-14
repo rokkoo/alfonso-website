@@ -30,7 +30,7 @@ const Blog: NextPage<Props> = ({ postMetadata }) => {
           bgGradient: 'linear(135deg, #ff80bf, #9580ff)',
         }}
         bgClip="text"
-        fontSize="4xl"
+        fontSize={['4xl', '5xl']}
       >
         Lista
       </Heading>

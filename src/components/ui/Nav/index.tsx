@@ -51,12 +51,11 @@ const Nav = () => {
           as="h1"
           color="gray.100"
           fontSize="3xl"
-          fontFamily="Bellota"
           _light={{
             color: 'gray.700',
           }}
         >
-          <Link href="/">Alfonso</Link>
+          <Link href="/">{'</>'}</Link>
         </Heading>
         <Grid
           flex={1}
@@ -64,18 +63,29 @@ const Nav = () => {
           fontWeight="semibold"
           justifyContent="flex-end"
           alignItems="center"
-          _light={{
-            color: 'gray.700',
-            _hover: {
-              color: 'black',
-            },
-          }}
-          _hover={{ color: 'gray.50' }}
         >
-          <Text fontSize="lg">
+          <Text
+            fontSize="lg"
+            _light={{
+              color: 'gray.700',
+              _hover: {
+                color: 'black',
+              },
+            }}
+            _hover={{ color: 'gray.50' }}
+          >
             <Link href="/blog">Blog</Link>
           </Text>
-          <MotionBox whileTap={{ scale: 0.9 }}>
+          <MotionBox
+            whileTap={{ scale: 0.9 }}
+            _light={{
+              color: 'gray.700',
+              _hover: {
+                color: 'black',
+              },
+            }}
+            _hover={{ color: 'gray.50' }}
+          >
             <Button onClick={toggleColorMode}>{renderThemeIcon()}</Button>
           </MotionBox>
         </Grid>

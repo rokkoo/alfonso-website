@@ -34,7 +34,7 @@ export default function BaseLayout({
       <Box minH="full" w={['100%', '700px']}>
         {renderHead()}
         {showNav && <Nav />}
-        <Box as="main" mt={['10%', '12']} h="full">
+        <Box as="main" mt={['10%', '14']} h="full">
           {children}
         </Box>
         <Footer />

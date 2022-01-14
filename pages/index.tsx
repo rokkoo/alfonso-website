@@ -1,13 +1,15 @@
 import type { GetStaticProps, NextPage } from 'next';
-
+import Image from 'next/image';
+import Link from 'next/link';
 import { promises as fs } from 'fs';
 import path from 'path';
+import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 
-import { Heading, Text } from '@chakra-ui/react';
 import BaseLayout from '../src/components/layout/BaseLayout';
 import RemarkText from '../src/components/ui/Text/RemarkText';
-import Link from 'next/link';
 import Careers from '../src/sections/Careers';
+
+import homeLogo from '../src/assets/home.svg';
 
 interface Post {
   title: string;
@@ -34,35 +36,44 @@ const Home: NextPage<Props> = ({ postMetadata }) => {
         }}
         bgClip="text"
         mb={4}
-        fontSize="4xl"
+        fontSize={['4xl', '5xl']}
       >
         Aprendiendo, creando y compartiendo
       </Heading>
-      <Text>
-        Hola! mi nombre es <RemarkText>Alfonso,</RemarkText> tengo 26 años y soy
-        desarrollador de software.
-      </Text>
-      <br />
-      <Text>
-        Llevo programando de manera profesional desde el año{' '}
-        <RemarkText>2018</RemarkText>.
-      </Text>
-      <br />
-      <Text>
-        Actualmente trabajo como desarrollador en{' '}
-        <RemarkText>React Native</RemarkText> en{' '}
-        <RemarkText>
-          <Link href="https://www.rebellionpay.com" passHref>
-            Rebellion pay.
-          </Link>
-        </RemarkText>
-      </Text>
-      <br />
-      <Text>
-        Amante del <RemarkText>darkmode,</RemarkText> el código y la tecnología.
-        Cuando no estoy trabajando o programando, me gusta ver pelicula/series
-        hacer crossfit y <RemarkText>comer mucho.</RemarkText>
-      </Text>
+      <Flex flexDirection={['column', 'row']}>
+        <Box mr="6">
+          <Text>
+            Hola! mi nombre es <RemarkText>Alfonso,</RemarkText> tengo 26 años y
+            soy desarrollador de software.
+          </Text>
+          <br />
+          <Text>
+            Llevo programando de manera profesional desde el año{' '}
+            <RemarkText>2018</RemarkText>.
+          </Text>
+          <br />
+          <Text>
+            Actualmente trabajo como desarrollador en{' '}
+            <RemarkText>React Native</RemarkText> en{' '}
+            <RemarkText>
+              <Link href="https://www.rebellionpay.com" passHref>
+                Rebellion pay.
+              </Link>
+            </RemarkText>
+          </Text>
+          <br />
+          <Text>
+            Amante del <RemarkText>darkmode,</RemarkText> el código y la
+            tecnología. Cuando no estoy trabajando o programando, me gusta ver
+            pelicula/series hacer crossfit y{' '}
+            <RemarkText>comer mucho.</RemarkText>
+          </Text>
+        </Box>
+        <Box justifyContent="center" mt={['4', '0']}>
+          <Image alt="Website logo" src={homeLogo} width={540} />
+        </Box>
+      </Flex>
+
       <Careers />
     </BaseLayout>
   );

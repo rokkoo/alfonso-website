@@ -17,7 +17,7 @@ const Career: React.FC<Props> = ({
   place,
 }) => {
   return (
-    <Box mt="8">
+    <Box mt="6">
       <Heading
         as="h4"
         fontSize="md"
