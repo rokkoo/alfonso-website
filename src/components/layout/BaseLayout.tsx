@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { Box } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
 import Head from 'next/head';
 import Nav from '../ui/Nav';
 import Footer from '../../sections/Footer';
@@ -34,7 +34,7 @@ export default function BaseLayout({
       <Box minH="full" w={['100%', '700px']}>
         {renderHead()}
         {showNav && <Nav />}
-        <Box as="main" mt={['10%', '12']}>
+        <Box as="main" mt={['10%', '12']} h="full">
           {children}
         </Box>
         <Footer />

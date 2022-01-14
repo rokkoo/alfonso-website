@@ -66,9 +66,13 @@ const Nav = () => {
           alignItems="center"
           _light={{
             color: 'gray.700',
+            _hover: {
+              color: 'black',
+            },
           }}
+          _hover={{ color: 'gray.50' }}
         >
-          <Text fontSize="lg" _hover={{ color: 'gray.50' }}>
+          <Text fontSize="lg">
             <Link href="/blog">Blog</Link>
           </Text>
           <MotionBox whileTap={{ scale: 0.9 }}>
