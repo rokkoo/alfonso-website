@@ -38,7 +38,7 @@ export default function BaseLayout({
       backgroundImage={`url(${svg.src})`}
       backgroundPosition="top, bottom"
       backgroundRepeat="no-repeat"
-      backgroundSize="100% auto"
+      backgroundSize={['100% 200px', '100% auto']}
     >
       <Box minH="full" w={['100%', '700px']}>
         {renderHead()}
