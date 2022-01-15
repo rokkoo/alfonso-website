@@ -3,12 +3,7 @@ import { Box, Flex, Text } from '@chakra-ui/react';
 import Link from 'next/link';
 import { format } from 'date-fns';
 import { es } from 'date-fns/locale';
-
-interface Post {
-  title: string;
-  slug: string;
-  date: string;
-}
+import { Post } from '../../components/layout/PostLayout';
 
 interface Props {
   postMetadata: Post[];

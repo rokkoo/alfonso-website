@@ -1,11 +1,13 @@
-import PostLayout from '../../src/components/layout/PostLayout';
 import { useCallback } from 'react';
 import { Heading } from '@chakra-ui/react';
+import PostLayout from '../../src/components/layout/PostLayout';
 
 export const metadata = {
   title: 'Context API con typescript',
   slug: 'context-api-con-typescript',
   date: '2022-01-14T19:02:51.838Z',
+  name: 'Context API con typescript',
+  content: 'Como usar el context API con typescript en react',
 };
 
 <Heading
@@ -34,4 +36,6 @@ console.log(`${movie}, ${year}`);
 Context.Provider({ year, movie });
 ```
 
-export default ({ children, ...props }) => <PostLayout>{children}</PostLayout>;
+export default ({ children, ...props }) => (
+  <PostLayout data={metadata}>{children}</PostLayout>
+);
