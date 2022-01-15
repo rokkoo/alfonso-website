@@ -1,8 +1,6 @@
-import { Box } from '@chakra-ui/react';
 import { MDXProvider, MDXProviderComponentsProp } from '@mdx-js/react';
 import Image from 'next/image';
 import Code from '../ui/Code/index';
-import Nav from '../ui/Nav';
 import BaseLayout from './BaseLayout';
 
 const ResponsiveImage = (props: any) => (

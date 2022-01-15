@@ -5,12 +5,7 @@ import BaseLayout from '../src/components/layout/BaseLayout';
 import BlogSection from '../src/sections/BlogSection';
 import { getPostsFromMdx } from '../src/lib/getPotsFromMdx';
 import RemarkText from '../src/components/ui/Text/RemarkText';
-
-interface Post {
-  title: string;
-  slug: string;
-  date: string;
-}
+import { Post } from '../src/components/layout/PostLayout';
 
 interface Props {
   postMetadata: Post[];
