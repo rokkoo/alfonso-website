@@ -3,6 +3,7 @@ import { Box, Flex } from '@chakra-ui/react';
 import Head from 'next/head';
 import Nav from '../ui/Nav';
 import Footer from '../../sections/Footer';
+import svg from '../../assets/3d_gradient.svg';
 
 interface Props {
   children: React.ReactNode;
@@ -30,7 +31,15 @@ export default function BaseLayout({
   }, [title, name, content]);
 
   return (
-    <Box justifyContent="center" display="flex" mx={['8', '10%']}>
+    <Box
+      justifyContent="center"
+      display="flex"
+      mx={['8', '10%']}
+      backgroundImage={`url(${svg.src})`}
+      backgroundPosition="top, bottom"
+      backgroundRepeat="no-repeat"
+      backgroundSize="100% auto"
+    >
       <Box minH="full" w={['100%', '700px']}>
         {renderHead()}
         {showNav && <Nav />}
