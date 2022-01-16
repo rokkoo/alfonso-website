@@ -1,0 +1,156 @@
+import { useCallback } from 'react';
+import PostLayout from '../../src/components/layout/PostLayout';
+import Iframe from '../../src/components/ui/Iframe';
+
+export const metadata = {
+  title: 'React context API con typescript',
+  slug: 'react-context-api-con-typescript',
+  date: '2022-01-14T19:02:51.838Z',
+  name: 'React context API con typescript',
+  content: 'Como usar react context API con typescript en react',
+};
+
+# React context API con typescript
+
+```typescript
+import React, { useState } from 'react';
+
+type Theme = 'light' | 'dark';
+
+interface IThemeContext {
+  theme: Theme;
+  toggleTheme?: () => void;
+}
+
+const initialState: IThemeContext = {
+  theme: 'dark',
+};
+
+const ThemeContext = React.createContext<IThemeContext>(initialState);
+
+interface IThemeContextProvider {
+  children: React.ReactNode;
+}
+
+export const ThemeContextProvider: React.FC<IThemeContextProvider> = ({
+  children,
+}) => {
+  const [theme, setTheme] = useState<Theme>('dark');
+
+  const toggleTheme = () => {
+    setTheme((theme) => (theme === 'light' ? 'dark' : 'light'));
+  };
+
+  const values = {
+    theme,
+    toggleTheme,
+  };
+
+  return (
+    <ThemeContext.Provider value={values}>{children}</ThemeContext.Provider>
+  );
+};
+
+// Hook para consumir el contexto que hemos creado previamente
+export const useTheme = () => {
+  const context = React.useContext(ThemeContext);
+
+  if (context === undefined) {
+    throw new Error('ThemeContext must be inside a Provider with a value');
+  }
+
+  return context;
+};
+```
+
+Esta sera una guía rápida de como podemos crear y consumir un contexto en nuestra aplicación de manera **global, fácil y sencilla.**
+
+Crearemos un contexto para manegar nuetro tema (dark o light) , y una función
+para cambiar dicho estado.
+
+Este es un ejemplo de **todas** la posibilidades que **tenemos** para crear un contexto
+en nuestra aplicación. Desde un estado tan simple como el tema, hasta manejar la
+lógica de nuestra aplicación.
+
+## Crear los types de nuestro contexto
+
+```typescript
+type Theme = 'light' | 'dark'; // Definimos nuestro tipo de tema
+
+interface IThemeContext {
+  theme: Theme;
+  // Definimos una función para cambiar el tema
+  // sera opcional por nuestro estado inicial
+  toggleTheme?: () => void;
+}
+```
+
+## Creamos nuestro estado inicial
+
+```typescript
+const initialState: IThemeContext = {
+  theme: 'dark',
+};
+```
+
+## Creamos nuestro contexto con el estado inicial creado previamente
+
+```typescript
+const ThemeContext = React.createContext<IThemeContext>(initialState);
+```
+
+## creamos nuestro contexto con el estado inicial creado previamente
+
+```typescript
+const ThemeContext = React.createContext<IThemeContext>(initialState);
+```
+
+## El Provider
+
+```typescript
+interface IThemeContextProvider {
+  children: React.ReactNode;
+}
+
+export const ThemeContextProvider: React.FC<IThemeContextProvider> = ({
+  children,
+}) => {
+  const [theme, setTheme] = useState<Theme>('dark');
+
+  const toggleTheme = () => {
+    setTheme((theme) => (theme === 'light' ? 'dark' : 'light'));
+  };
+
+  const values = {
+    theme,
+    toggleTheme,
+  };
+
+  return (
+    <ThemeContext.Provider value={values}>{children}</ThemeContext.Provider>
+  );
+};
+```
+
+Aquí creamos nuestro provider, que es el que nos permite consumir nuestro contexto.
+Esta es la parte más importante del contexto, porque es donde estamos consumiendo nuestro contexto.
+Manejaremos los diretente **estados** ya sea como una estado local o externo.
+
+> Pro tip: Podemos mejorar nuestra performance encapsulando nuestro objeto **values** dentro de un **useMemo**, de esta manera no estaremos creando una nueva referencia
+> con cada re-render de nuestro componente si no hay cambios en sus dependencias.
+
+## El hook useTheme
+
+Este hook sera el que nos permita consumir nuestro contexto en cualquier **componente funcional**, de manera facil y sencilla.
+De esta manera podremos consumir nuestro contexto desde un único punto de nuestra aplicación y no tener que pasarle nuestro contexto a todos nuestros componentes.
+
+## Source code
+
+<Iframe
+  src="https://codesandbox.io/embed/charming-snow-7sddh?fontsize=14&hidenavigation=1&theme=dark"
+  title={metadata.title}
+/>
+
+export default ({ children, ...props }) => (
+  <PostLayout data={metadata}>{children}</PostLayout>
+);
