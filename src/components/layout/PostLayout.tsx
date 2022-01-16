@@ -33,7 +33,7 @@ const H2 = ({ children }: any) => {
       as="h2"
       pt="6"
       mb={4}
-      fontSize={['large', 'xl']}
+      fontSize={['xl']}
       _dark={{ color: 'gray.100' }}
       fontFamily="Bellota"
     >
