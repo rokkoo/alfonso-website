@@ -10,12 +10,9 @@ import RemarkText from '../src/components/ui/Text/RemarkText';
 import Careers from '../src/sections/Careers';
 
 import homeLogo from '../src/assets/home.svg';
-
-interface Post {
-  title: string;
-  slug: string;
-  date: string;
-}
+import { Post } from '../src/components/layout/PostLayout';
+import { getPostsFromMdx } from '../src/lib/getPotsFromMdx';
+import BlogSection from '../src/sections/BlogSection';
 
 interface Props {
   postMetadata: Post[];
@@ -75,19 +72,23 @@ const Home: NextPage<Props> = ({ postMetadata }) => {
       </Flex>
 
       <Careers />
+
+      <Heading
+        mt="14"
+        as="h4"
+        fontSize="2xl"
+        color="gray.50"
+        _light={{ color: 'black' }}
+      >
+        Posts
+      </Heading>
+      <BlogSection postMetadata={postMetadata} />
     </BaseLayout>
   );
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const postDirectory = path.join(process.cwd(), 'pages/posts');
-  const postFilenames = await fs.readdir(postDirectory);
-
-  const postModules = await Promise.all(
-    postFilenames.map(async (p) => import(`./posts/${p}`))
-  );
-
-  const postMetadata = postModules.map((m) => m.metadata);
+  const postMetadata = await getPostsFromMdx();
 
   return {
     props: {
