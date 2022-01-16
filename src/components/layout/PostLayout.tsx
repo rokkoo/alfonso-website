@@ -29,16 +29,25 @@ const H1 = ({ children }: any) => {
 };
 const H2 = ({ children }: any) => {
   return (
-    <Heading
-      as="h2"
-      pt="6"
-      mb={4}
-      fontSize={['xl']}
-      _dark={{ color: 'gray.100' }}
-      fontFamily="Bellota"
-    >
-      {children}
-    </Heading>
+    <Flex pt="6">
+      <Box
+        w="2px"
+        bg="cyan.900"
+        h="26px"
+        mr="2"
+        _light={{ bg: 'gray.500' }}
+        borderRadius="2"
+      />
+      <Heading
+        as="h2"
+        mb={4}
+        fontSize={['xl']}
+        _dark={{ color: 'gray.100' }}
+        fontFamily="Bellota"
+      >
+        {children}
+      </Heading>
+    </Flex>
   );
 };
 
