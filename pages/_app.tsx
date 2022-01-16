@@ -19,6 +19,9 @@ const styles = {
       bg: mode('gray.100', 'black')(props),
       fontSize: 'md',
     },
+    p: {
+      fontSize: ['md', 'large'],
+    },
   }),
 };
 
