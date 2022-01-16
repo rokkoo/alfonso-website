@@ -27,9 +27,13 @@ const Blog: NextPage<Props> = ({ postMetadata }) => {
         bgClip="text"
         fontSize={['4xl', '5xl']}
       >
-        Lista
+        Posts
       </Heading>
-      <Text mt="4">
+      <Text fontSize="large">
+        La idea de esta sección es documentar, compartir lo que voy aprendiendo
+        y creando.
+      </Text>
+      <Text mt="4" fontSize="large">
         Aquí veras una lista de mis posts. Podrás leer sobre{' '}
         <RemarkText> React, React Native, Javascript y más!</RemarkText>
       </Text>
